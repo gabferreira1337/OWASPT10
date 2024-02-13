@@ -4,6 +4,10 @@
 * Example: The account page of the current user on https://example-1337.com/account?id=42.
 * An attacker can modify the **id** parameter value to another, attempting to gain access to another user's account page and retrieve all associated data.
 ***
+### Horizontal to vertical privilege escalation
+#### Frequently, a horizontal privilege escalation attack can be turned into a vertical privilege escalation, by compromising a more privileged user. For example, when the attacker executes a horizontal escalation he might exploit an administrator account and gain administrative access, performing a vertical privilege escalation
+
+***
 ### 3 Best practices to avoid horizontal privilege escalation:
 * **Secure Session Management**: Secure session handling practices , including session timeouts, token validation.For example: Invalidate sessions promptly after users log out
 or when they are inactive for a predefined period.
