@@ -66,7 +66,6 @@ def main():
     print("(-> Horizontal privilege escalation vulnerability...")
     # pass cookies of user in login
     s = requests.Session()
-    print(s)
 
     get_api_key(s, url)
 
