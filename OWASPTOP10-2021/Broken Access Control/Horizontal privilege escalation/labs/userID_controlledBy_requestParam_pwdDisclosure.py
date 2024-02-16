@@ -35,7 +35,7 @@ def login_admin(s, url, password, admin_name, csrf):
         log_in_and_delete_user(s, url)
 
     else:
-        print("(-) Couldn't login as administartor")
+        print("(-) Couldn't login as administrator")
         exit(-1)
 
 
