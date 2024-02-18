@@ -1,7 +1,7 @@
 # Horizontal Privilege Escalation
 ***
 ### Horizontal privilege escalation occurs when a user gains access to information or resources of another user.
-* Example: The account page of the current user on https://example-1337.com/account?id=42.
+* Example: The account page of the current user on ``` https://example-1337.com/account?id=42.```
 * An attacker can modify the **id** parameter value to another, attempting to gain access to another user's account page and retrieve all associated data.
 ***
 ### Horizontal to vertical privilege escalation
