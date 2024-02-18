@@ -9,6 +9,7 @@
 <?php echo file_get_contents('/path/to/target/file');?>
 ```
 
+
 ### Flawed type validation 
 #### One way that websites may attempt to validate file uploads is to check that this input-specific Content-Type header matches an expected **MIME** type. Problems can arise when the value of this header is implicitly trusted by the server and if no further validation is performed to check whether the contents of the file match the supposed MIME type, this defense can easily be bypassed. 
 
