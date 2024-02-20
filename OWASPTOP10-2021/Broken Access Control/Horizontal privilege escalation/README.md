@@ -12,7 +12,7 @@
 * **Secure Session Management**: Secure session handling practices , including session timeouts, token validation.For example: Invalidate sessions promptly after users log out
 or when they are inactive for a predefined period.
 * **Principle of Least Privilege (PoLP)**: Limit user privileges to the minimum necessary for their tasks. Avoid giving users more access than required , and regularly review and update access permissions
-* **Regular Monitoring**: Continuously monitor user activities and network traffic for anomalies. Use intrusion detection systems **(IDS)** or security information event management **(SIEM)** tools to identify unusual patterns or behaviors.
+* **Regular** Monitoring: Continuously monitor user activities and network traffic for anomalies. Use intrusion detection systems **(IDS)** or security information event management **(SIEM)** tools to identify unusual patterns or behaviors.
 
 ***
 ***Note:*** Certain applications employ globally unique identifiers **(GUIDs)** rather than predictable, incrementing numbers as exploitable parameters for user identification, to prevent an attacker from easily guessing or predicting user identifiers.
