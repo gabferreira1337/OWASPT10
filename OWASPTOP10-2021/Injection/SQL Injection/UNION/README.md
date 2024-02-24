@@ -19,3 +19,11 @@
 * **NOTE**: In the context of Oracle databases, it is a requirement that every **SELECT** query includes the **FROM** keyword and specifies a valid table. Fortunately, Oracle provides a built-in table called **dual**, which serves this purpose. Therefore, injected queris on Oracle db typically take the following form: \
 ` UNION SELECT NULL FROM DUAL--` \
 Also it's important to note that on MySQL databases, the `--` comment sequence must be followed by a space. Alternatively, the `#` character can be used to identify a comment.
+# How to identify columns in the original query that can hold string data?
+#### Once the number of required columns is determined, each column is probed by submitting `UNION SELECT` payloads with string values.
+* Example: If the original query returns four columns, \
+`' UNION SELECT  'g', NULL, NULL, NULL--` \
+`' UNION SELECT  NULL, 'g', NULL, NULL--` \
+`' UNION SELECT  NULL, NULL, 'g', NULL--` \
+`' UNION SELECT  NULL, NULL, NULL, 'g'--` 
+* If a database error occurs, such as conversion error, it means that the column's data type is not compatible with string data.
