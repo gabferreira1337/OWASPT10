@@ -27,3 +27,9 @@ Also it's important to note that on MySQL databases, the `--` comment sequence m
 `' UNION SELECT  NULL, NULL, 'g', NULL--` \
 `' UNION SELECT  NULL, NULL, NULL, 'g'--` 
 * If a database error occurs, such as conversion error, it means that the column's data type is not compatible with string data.
+# String concatenation
+#### When a query only returns a single column, it's possible to retrieve multiple values by concatenating them together and even include a separator to distinguish the combined values
+* Example: On postgres we could submit the following input \
+`UNION SELECT username ||'~'|| password FROM users`
+* Output : `admin~~1337`
+#### The double-pipe sequence `||` is a string concatenation operator on Oracle and other databases and the '~' char is used to separate the data.
