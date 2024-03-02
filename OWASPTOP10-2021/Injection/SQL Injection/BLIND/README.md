@@ -16,3 +16,4 @@
 # Error-based SQLi
 #### When exploiting blind SQLi, some applications may not visibly respond to changes in boolean conditions in the injected SQL queries. In such cases, a different approach is needed. By manipulating the query to intentionally cause a SQL error under certain conditions, we can observe variations in the application's response. This occurs because an unhandled error triggered by the database can lead to noticeable differences, such as error messages, in the application's behaviour.
 * Example:
+
