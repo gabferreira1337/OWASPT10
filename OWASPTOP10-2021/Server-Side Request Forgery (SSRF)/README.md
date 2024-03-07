@@ -15,6 +15,13 @@ stockApi=http://localhost/admin
 #### In certain scenarios, application servers may communicate with backend systems that aren't directly accessible by end-users. These backend systems often use non-routable IP addresses and shielded by the network topology.However, the security measures for these backend systems may be less robust.
 #### It's common for internal backend systems to house sensitive functionalities that could potentially be accessed without proper authentication by anyone with the ability to interact with the systems. This setup poses a risk, as unauthorized users might exploit vulnerabilities in the less secure backend systems to gain access to sensitive functionalities.
 ***
+### How to bypass common SSRF defenses
+#### Some applications have defenses in place, like blocking specific hostnames or URLs. However an attacker can still find ways to bypass these defenses
+1. **Alternative IP Representation**: Instead of using the blocked hostname like **"127.0.0.1"**, an attacker might use different representations like **"2130706433"** or **"017700000001"**.
+2. **Registering Spoofed Domains**: Attackers can register their own domain (e.g "spoofed.burpcollaborator.net") that resolves to the forbidden IP address (**127.0.0.1**).
+3. **Obfuscation**: Strings can be obfuscated using techniques like URL encoding or changing the case of characters, making it harder for filters to detect and block malicious input.
+4. **Redirect** : Attackers may provide a URL they control, which redirects to the target URL. By using various redirect codes and different protocols (e.g., switching from **"http"** to **"https:"**), they can trick anti-SSRF filters.
+***
 ### 3 methods to mitigate the risk of SSRF:
 * **Input Validation and sanitation**: Implement strict input validation on user-supplied input, especially for URLs or parameters that could be used in requests (preventing **HPP** (HTTP Parameter Pollution)).
 * **Use whitelists**: Maintain a whitelist of allowed URLs or IP addresses that the server is allowed to communicate with. This restricts the scope of potential SSRF attacks.
