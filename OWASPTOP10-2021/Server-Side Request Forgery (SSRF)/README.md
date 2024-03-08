@@ -24,7 +24,7 @@ stockApi=http://localhost/admin
 ***
 ### SSRF with whitelist-based input filters
 #### In situations where applications employ whitelist-based input filters, it's essential to recognize potential vulnerabilities that may arise from oversight in URL parsing mechanisms. Exploiting inconsistencies in the parsing process can enable the circumvention of restrictive input filters.
-* Here are several techniques that can be employed:
+* Various techniques can be employed:
 1. **Credential Embedding**:
 2. **URL Fragment Manipulation**:
 ***
