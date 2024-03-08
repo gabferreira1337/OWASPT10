@@ -22,6 +22,12 @@ stockApi=http://localhost/admin
 3. **Obfuscation**: Strings can be obfuscated using techniques like URL encoding or changing the case of characters, making it harder for filters to detect and block malicious input.
 4. **Redirect** : Attackers may provide a URL they control, which redirects to the target URL. By using various redirect codes and different protocols (e.g., switching from **"http"** to **"https:"**), they can trick anti-SSRF filters.
 ***
+### SSRF with whitelist-based input filters
+#### In situations where applications employ whitelist-based input filters, it's essential to recognize potential vulnerabilities that may arise from oversight in URL parsing mechanisms. Exploiting inconsistencies in the parsing process can enable the circumvention of restrictive input filters.
+* Here are several techniques that can be employed:
+1. **Credential Embedding**:
+2. **URL Fragment Manipulation**:
+***
 ### 3 methods to mitigate the risk of SSRF:
 * **Input Validation and sanitation**: Implement strict input validation on user-supplied input, especially for URLs or parameters that could be used in requests (preventing **HPP** (HTTP Parameter Pollution)).
 * **Use whitelists**: Maintain a whitelist of allowed URLs or IP addresses that the server is allowed to communicate with. This restricts the scope of potential SSRF attacks.
