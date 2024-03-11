@@ -23,7 +23,6 @@
 * `(backticks)` , ` injected command \ `, `$(` , `injected command )`
 #### Note: In cases where the input under the attacker's control is enclosed within quotation marks in the original command, it becomes necessary to terminate the quoted context (using, `"`, `'`) before injecting new commands with the appropriate shell metacharacters.
 ***
-
 ***
 ### 3 Best practices to prevent OS command injection attack
 * **Avoid shell commands** : Whenever possible, avoid executing shell commands from within your application. Instead, use platform-specific APIs or libraries that provide a safer way to achieve the same functionality
