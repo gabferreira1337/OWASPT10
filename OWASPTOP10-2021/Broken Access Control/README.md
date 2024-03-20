@@ -13,6 +13,9 @@
 2. Submitting the changes.
 3. Renewing and confirming the changes.
 #### While websites may enforce strict access controls on the first two steps, they sometimes overlook the third step. They may assume that users can only reach step 3 after completing the preceding steps, which are properly controlled. However, this assumption creates a vulnerability. An attacker can exploit this by bypassing the first two steps and directly submitting the request for the third step with the necessary parameters, allowing the attacker to gain unauthorized access to the function. 
+### Referer-based access control
+#### Certain websites use the **Referer** header in HTTP requests as a basis for access control. This header, automatically included by browsers, indicates the webpage that triggered the request. For example, while the main administrative page `admin` might have robust access control measures, sub-pages like `/admin/updateUser` may rely solely on the **Referer** header. If this header contains the main `/admin` URL, the request is granted. However, since attackers can manipulate the **Referer** header, they can forge requests to sensitive sub-pages by supplying the appropriate **Referer** header, thus gaining unauthorized access.
+
 ### 3 Best practices to avoid Broken access control:
 ***
 * **Secure Session Management**: Secure session handling practices , including session timeouts, token validation.For example: Invalidate sessions promptly after users log out
