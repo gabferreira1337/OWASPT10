@@ -20,9 +20,11 @@
 ### Referer-based access control
 #### Certain websites use the **Referer** header in HTTP requests as a basis for access control. This header, automatically included by browsers, indicates the webpage that triggered the request. For example, while the main administrative page `admin` might have robust access control measures, sub-pages like `/admin/updateUser` may rely solely on the **Referer** header. If this header contains the main `/admin` URL, the request is granted. However, since attackers can manipulate the **Referer** header, they can forge requests to sensitive sub-pages by supplying the appropriate **Referer** header, thus gaining unauthorized access.
 ### Location-based access control
+#### Some websites may also implement access controls determined by the geographical location of users, particularly in sectors like banking or media services where regional regulations or business requirements are pertinent. However, these controls are susceptible to circumvention through methods such as web proxies, VPNs, or manipulation of client-side geolocation mechanisms.
 ### 3 Best practices to avoid Broken access control:
 ***
 * **Secure Session Management**: Secure session handling practices , including session timeouts, token validation.For example: Invalidate sessions promptly after users log out
 or when they are inactive for a predefined period.
+* **Obfuscation dependent**: Avoid depending solely on obfuscation as a means of access control
 * **Principle of Least Privilege (PoLP)**: Limit user privileges to the minimum necessary for their tasks. Avoid giving users more access than required , and regularly review and update access permissions
-* **Regular** Monitoring: Continuously monitor user activities and network traffic for anomalies. Use intrusion detection systems **(IDS)** or security information event management **(SIEM)** tools to identify unusual patterns or behaviors.
+* **Audits and testing**: Conduct comprehensive audits and testing of access controls to verify their effectiveness and alignment with intended design.
