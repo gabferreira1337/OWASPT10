@@ -14,7 +14,9 @@
 
 ### ***Web shell***
 #### A web shell is a malicious script that enables an attacker to execute arbitrary commands on a remote web server simply by sending HTTP requests to the right endpoint.
-
+### Preventing file execution in user-accessible directories
+#### Preventing the execution of potentially dangerous files in directories accessible to users os crucial for maintaining the security of a server. While it's ideal to prevent such files from being uploaded in the first place, a secondary measure involves configuring the server to only execute scripts with explicitly **MIME** types. If a script slips through the initial checks, the server typically refrains from executing it and may instead return an error message or serve the file contents as plain text.
+#### This behaviour not only helps prevent the execution of malicious scripts but also prevents the creation of web shells. However, it's worth noting that such configurations may vary between directories. Directories where users can upload files often have stricter controls compared to other parts of the filesystem assumed to be inaccessible to end users. Nevertheless, if an attacker finds a way to upload a script to a directory not intended for user-supplied files, the server might inadvertently execute the script.
 ***
 ### 3 Best practices to help prevent file upload vulnerabilities:
 * Whitelist instead of Blacklist: Instead of prohibiting certain file types, create a whitelist of permitted file extensions.
