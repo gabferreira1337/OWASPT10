@@ -1,4 +1,4 @@
-# Lab: SQLi attack, querying the database type and version on MySQL and Microsoft
+# Lab: SQLi attack, querying the database type and version on MySQL_MariaDB and Microsoft
 import os
 import sys
 from bs4 import BeautifulSoup
