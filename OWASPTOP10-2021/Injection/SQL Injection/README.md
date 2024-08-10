@@ -34,7 +34,9 @@
 2. Scan parameters:
    * Specify the parameters and entry points to be scanned within the application.
 3. Scan Initiation:
-   * Start the scanning proccess, and **Burp Scanner** will automatically inject various payloads, analyze responses, and identify potential SQli vulnerabilities.
+   * Start the scanning process, and **Burp Scanner** will automatically inject various payloads, analyze responses, and identify potential SQli vulnerabilities.
+
+#### Injecting a ' or a " escapes the limits of user input, so it dos not get executed as simple user input
 ***
 ### 3 Measures to prevent SQL injections
 * **Parameterized Queries**: Utilizing parameterized queries, or prepared statements, is crucial for preventing SQL injection vulnerabilities. By parameterizing user input, the query structure remains intact, and potential malicious input is treated as data rather than executable code.
