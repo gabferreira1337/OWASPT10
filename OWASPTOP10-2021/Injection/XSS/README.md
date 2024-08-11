@@ -3,7 +3,7 @@
 ### There are 3 main types of XSS
 * **Stored (Persistent)** = It occurs when the user input is stored on the back-end database and then displayed 
 * **Reflected  (Non-Persistent)** = Occurs when user input is displayed on the page after being processed by the backend server, without being stored
-* **DOM-based **=  And lastly also a non-persistent XSS type that occurs when inserted input is shown in the browser, being completely processed on the client-side
+* **DOM-based** =  And lastly also a non-persistent XSS type that occurs when inserted input is shown in the browser, being completely processed on the client-side
 
 ### Stored (Persistent) XSS
 #### If we input the following payload on an input field that displays what we have inserted right after (e.g., to-do list), without any sanitization,  it will execute that payload (by displaying the alert), and also store on the back-end database

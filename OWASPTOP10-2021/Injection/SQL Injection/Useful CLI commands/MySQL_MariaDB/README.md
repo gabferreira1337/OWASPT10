@@ -1,4 +1,4 @@
-# MySQL and MariaDB
+# MySQL and MariaDB Basics
 ***
 
 ### Connect to a host
@@ -39,5 +39,48 @@ mysql> SHOW TABLES
 ```mysql
 mysql> DESCRIBE user;
 ```
+### Insert new record to a given table
+#### Passwords should be hashed/encrypted before storage
+```mysql
+mysql> INSERT INTO user VALUES('root', 'root');
+```
 
+### Insert multiple records to a given table
+```mysql
+mysql> INSERT INTO user VALUES('root', 'root'), ('notroot', 'notroot');
+```
+### Retrieve data 
+```mysql
+mysql> SELECT password FROM user;
+```
+
+### Drop (remove) tables and databases from the server 
+#### Favorite SQL statement for junior Devs ;)
+```mysql
+mysql> DROP TABLE user;
+```
+
+### Drop (remove) column
+```mysql
+mysql> ALTER TABLE user DROP points;
+```
+
+### Using ALTER to change the name of any table and any of its fields, or delete or add a new column to an existing table
+```mysql
+mysql> ALTER TABLE user ADD points INT;
+```
+### Rename Column
+```mysql
+mysql> ALTER TABLE user RENAME COLUMN nopoints;
+```
+
+### Change a column's data type
+```mysql
+mysql> ALTER TABLE user MODIFY nopoints VARCHAR(5);
+```
+### Update specific records within a table
+
+```mysql
+mysql> UPDATE user SET password = "rootroot" WHERE id > 1;
+```
 
