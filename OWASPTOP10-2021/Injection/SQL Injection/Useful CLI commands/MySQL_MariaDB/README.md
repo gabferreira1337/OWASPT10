@@ -78,9 +78,71 @@ mysql> ALTER TABLE user RENAME COLUMN nopoints;
 ```mysql
 mysql> ALTER TABLE user MODIFY nopoints VARCHAR(5);
 ```
-### Update specific records within a table
+### UPDATE specific records within a table
 
 ```mysql
 mysql> UPDATE user SET password = "rootroot" WHERE id > 1;
 ```
 
+### Query Results
+
+#### Sorting Results
+```mysql
+mysql> SELECT * FROM user ORDER BY password  DESC;
+```
+```mysql
+mysql> SELECT * FROM user ORDER BY password  DESC, id ASC;
+```
+
+#### LIMIT Results
+```mysql
+mysql> SELECT * FROM user ORDER BY password  DESC, id ASC;
+```
+
+#### LIMIT with Offset
+```mysql
+mysql> SELECT * FROM user LIMIT 1, 2;
+```
+
+#### WHERE Clause
+```mysql
+mysql> SELECT * FROM table_name WHERE  <Condition>;
+```
+
+#### LIKE Clause
+##### '%' match zero or more chars , '_' match exactly one char
+```mysql
+mysql> SELECT * FROM user WHERE username  LIKE "admin%";
+```
+```mysql
+mysql> SELECT * FROM user WHERE username  LIKE "___";
+```
+
+#### SQL Operators
+##### AND
+```mysql
+mysql> SELECT 1 = 1 AND "test" = "test";
+```
+##### The result will be true (1)
+
+##### OR
+```mysql
+mysql> SELECT 1 = 1 OR "test" = "abc";
+```
+##### The result will be true (1)
+
+##### NOT
+```mysql
+mysql> SELECT NOT 1 = 2;
+```
+##### The result will be true (1)
+
+#### Multiple Operator Precedence
+* Division (/), Multiplication (*), and Modulus (%)
+* Addition (+) and subtraction (-)
+* Comparison (=, >, <, <=, >=, !=, LIKE)
+* NOT (!)
+* AND (&&)
+* OR (||)
+
+##### Note: In MySQL/MariaDB we can't add a ';' to execute more queries.

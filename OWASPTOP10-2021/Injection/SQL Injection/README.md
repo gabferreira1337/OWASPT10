@@ -11,15 +11,25 @@
      * Example: 
        * Input:  `www.asd1337.org/app.php?uid=' UNION SELECT username, password FROM users--` \  
        * Output: `admin ksdlsanalflafna`
+   * Example:
+       * Input: ```  www.asd1337.org/app.php?uid=1'; DROP TABLE users```
 2. **Blind**
     * **Boolean** :
     * **Time** :
-3. **Out-of-Band**
+3. **Out-of-Band** : Out-of-band SQL injection is used when we don't have direct access to the output whatsoever, so we may need to direct the output to a remote location (out-of-band) 'i.e., DNS record' and then attempt to retrieve it from there.
 ## Detecting SQL injection vulnerabilities
-### To detect SQLi vulnerabilities in a web application, a systematic set of tests can be conducted on each entry point by following manual testing methods or use automated tools like Burp Scanner
-#### Manual Testing:
+#### To detect SQLi vulnerabilities in a web application, a systematic set of tests can be conducted on each entry point by following manual testing methods or use automated tools like Burp Scanner
+### Manual Testing:
 1. Single Quote Test:
-   * Test with a single quote `(')` to identify potential errors or anomalies in the application's response. If there's an error or unexpected behavior, it could indicate a potential SQLi vulnerability.
+   * Test with : 
+     * `'`      or `%27`  (url encoded)
+     * `"`      or `%22`  
+     * `#`      or `%23`  
+     * `;`      or `%3B`  
+     * `)`      or `%29` 
+   * to identify potential errors or anomalies in the application's response. If there's an error or unexpected behavior, it could indicate a potential SQLi vulnerability.
+   * **Note** that in some cases, we may have to use the URL encoded version of the payload as seen on the list above. An example os this is when we put our payload in the URL
+   
 2. SQL Syntax Testing:
    * Test SQL-specific syntax to evaluate the original value and a different value. Check for systematic differences in the application's responses.
 3. Boolean Conditions:
@@ -36,7 +46,8 @@
 3. Scan Initiation:
    * Start the scanning process, and **Burp Scanner** will automatically inject various payloads, analyze responses, and identify potential SQli vulnerabilities.
 
-#### Injecting a ' or a " escapes the limits of user input, so it dos not get executed as simple user input
+#### Injecting a ' or a " escapes the limits of user input, so it does not get executed as simple user input
+#### While using those special characters we need to make sure that no syntax error occurs on the back-end because of the last trailing character. That's why in most cases we use comments ("--") or using multiple single quotes (').
 ***
 ### 3 Measures to prevent SQL injections
 * **Parameterized Queries**: Utilizing parameterized queries, or prepared statements, is crucial for preventing SQL injection vulnerabilities. By parameterizing user input, the query structure remains intact, and potential malicious input is treated as data rather than executable code.
@@ -44,3 +55,4 @@
 * **Whitelisting**: Identifying and approving only certain characters, patterns, or values that are allowed in user inputs. Also Whitelisting may include the use of escape characters or encoding to neutralize any attemp to exploit the input with characters that have special meaning in SQL.
 ***
 ### [SQL injection cheat sheet from portswigger](https://portswigger.net/web-security/sql-injection/cheat-sheet)
+### [SQL injection Payloads](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/SQL%20Injection/README.md)
