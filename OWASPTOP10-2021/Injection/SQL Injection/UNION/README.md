@@ -50,3 +50,11 @@ Also it's important to note that on MySQL databases, the `--` comment sequence m
   * Example: `SELECT * FROM information_schema.columns WHERE table_name='Users'`
 
 
+### Location of Injection
+#### When a query retrieves multiple columns, the web application might only show certain ones on the page. If we inject our code into a column that isn't displayed, we won't see its result
+#### To get the output we want, it's important to figure out which columns are actually shown on the page. 
+* Example:
+  * ` ' UNION SELECT 1, @version, 3, 4-- `
+  * By displaying the version of the database we can test if we can query for actual data from the database, and not only just numbers.
+
+##### **NOTE**: Using NULL it's the best option as it fits all data types
