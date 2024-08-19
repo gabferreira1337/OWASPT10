@@ -145,4 +145,4 @@ mysql> SELECT NOT 1 = 2;
 * AND (&&)
 * OR (||)
 
-##### Note: In MySQL/MariaDB we can't add a ';' to execute more queries.
+##### Note: In MySQL/MariaDB we can't add a ';' to execute more queries. We can use the username root   to login without a password
