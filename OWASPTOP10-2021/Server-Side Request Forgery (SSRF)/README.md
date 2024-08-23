@@ -44,6 +44,13 @@ stockApi=http://localhost/admin
 `stockApi=http://webstore.org/product/nextProd?currProdId=1&path=http://192.168.0.12/admin`
 * In this case, the application validates the stockAPI URL on an allowed domain, triggering the redirection and making a request to the attacker's chosen internal URL, exploiting the SSRF vulnerability.
 ***
+
+### Common URL schemes used to exploit SSRF vulnerabilities
+* `http://` and `https://`: Retrieves Content via HTTP/S requests. It can be used as a way to bypass WAFs, access restricted endpoints, or access points in the internal network.
+* `file://`: Reads a file from the local file system. A hacker may use this in the exploitation of SSRF weaknesses to read local files on the web server (LFI)
+* `gopher://`: Protocol used to send arbitrary bytes to the specified address. This can be useful to exploit SSRF vulnerabilities, by sending HTTP POST requests with random payloads or communicating with other services , SMTP servers, databases, etc.
+
+
 ### 3 methods to mitigate the risk of SSRF:
 * **Input Validation and sanitation**: Implement strict input validation on user-supplied input, especially for URLs or parameters that could be used in requests (preventing **HPP** (HTTP Parameter Pollution)).
 * **Use whitelists**: Maintain a whitelist of allowed URLs or IP addresses that the server is allowed to communicate with. This restricts the scope of potential SSRF attacks.

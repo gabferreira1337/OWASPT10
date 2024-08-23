@@ -1,4 +1,4 @@
-# Lab: Blind SQLi with time delays and information retrieval
+# Lab: Blind SSRF SQLi with time delays and information retrieval
 import sys
 import urllib.parse
 import requests

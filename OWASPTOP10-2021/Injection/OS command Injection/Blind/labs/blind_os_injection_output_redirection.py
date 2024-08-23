@@ -1,4 +1,4 @@
-# Lab: Blind OS command injection with output redirection
+# Lab: Blind SSRF OS command Injection with output redirection
 import sys
 import urllib3
 import urllib.parse
@@ -63,7 +63,7 @@ def main():
         sys.exit(-1)
 
     url = sys.argv[1]
-    print("(-> Blind OS command injection with output redirection...")
+    print("(-> Blind SSRF OS command Injection with output redirection...")
     s = requests.Session()
     os_command_injection(s, url)
 

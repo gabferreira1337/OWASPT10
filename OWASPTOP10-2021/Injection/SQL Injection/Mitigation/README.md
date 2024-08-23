@@ -83,7 +83,7 @@ MariaDB [(none)]> GRANT SELECT ON mydb.ports TO '1337'@'localhost' IDENTIFIED BY
 #### Examples of WAFs: ModSecurity (Open-source) , Cloudflare (premium)
 
 ### Parameterized Queries
-#### Another way to ensure input safety is by using parameterized queries. With parameterized queries,  we don't directly insert user input into the SQL query. Instead, we use placeholders within the query, and the input data is then safely inserted by the database driver. The driver automatically handles the escaping and sanitization of the input, reducing the risk of SQL injection attacks. In PHP, funcitons are used to bind the actual user input to these placeholders before executing the query
+#### Another way to ensure input safety is by using parameterized queries. With parameterized queries,  we don't directly insert user input into the SQL query. Instead, we use placeholders within the query, and the input data is then safely inserted by the database driver. The driver automatically handles the escaping and sanitization of the input, reducing the risk of SQL injection attacks. In PHP, functions are used to bind the actual user input to these placeholders before executing the query
 #### Example:
 ```php
 <SNIP>

@@ -1,4 +1,4 @@
-# Lab: Blind SQLi by triggering conditional errors
+# Lab: Blind SSRF SQLi by triggering conditional errors
 import os
 import sys
 import urllib.parse
