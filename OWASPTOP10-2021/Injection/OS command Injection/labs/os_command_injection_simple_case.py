@@ -1,4 +1,4 @@
-# Lab: OS command injection
+# Lab: OS command Injection
 # This script injects a linux command in the product stock request
 import sys
 import urllib3
@@ -36,7 +36,7 @@ def main():
         sys.exit(-1)
 
     url = sys.argv[1]
-    print("(-> OS command injection ...")
+    print("(-> OS command Injection ...")
     s = requests.Session()
     command = sys.argv[2]
     os_command_injection(s, url, command)

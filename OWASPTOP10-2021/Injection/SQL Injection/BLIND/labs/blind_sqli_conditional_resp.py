@@ -1,4 +1,4 @@
-# Lab: Blind SQLi with conditional responses
+# Lab: Blind SSRF SQLi with conditional responses
 import os
 import sys
 import urllib.parse

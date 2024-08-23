@@ -1,4 +1,4 @@
-# Lab: Blind OS command injection with time delays
+# Lab: Blind SSRF OS command Injection with time delays
 # This script injects a linux command in the product stock request
 import sys
 import urllib3
@@ -49,7 +49,7 @@ def main():
         sys.exit(-1)
 
     url = sys.argv[1]
-    print("(-> Blind OS command injection with time delays...")
+    print("(-> Blind SSRF OS command Injection with time delays...")
     s = requests.Session()
     os_command_injection(s, url)
 

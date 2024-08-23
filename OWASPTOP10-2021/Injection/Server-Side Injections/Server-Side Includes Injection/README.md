@@ -1,0 +1,3 @@
+# [Server-Side includes Injection (SSI) ](https://owasp.org/www-community/attacks/Server-Side_Includes_(SSI)_Injection)
+***
+#### Server-side includes (SSI) allow web servers to dynamically generate HTML by embedding directives within HTML files. These directives can, for example, include shared content like headers or footers across multiple pages. If an attacker is able to inject malicious commands into these SSI directives, it can lead to a Server-Side Includes (SSI) Injection. This vulnerability may result in data leaks or even enable the attacker to execute commands on the server, potentially compromising it.
