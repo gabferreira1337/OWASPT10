@@ -1,3 +1,0 @@
-# [Server-Side Template Injection (SSTI)](https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/07-Input_Validation_Testing/18-Testing_for_Server_Side_Template_Injection)
-***
-#### Web applications often use templating engines to dynamically create HTML content based on user input. If an attacker is able to insert malicious template code, it can exploit a Server-Side Template Injection (SSTI) vulnerability. This can result in serious security risks like data breaches or even allow the attacker to take control of the server through remote code execution.

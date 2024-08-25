@@ -1,0 +1,5 @@
+# Preventing SSTI vulnerabilities
+***
+#### To prevent SSTI (Server-Side Template Injection) vulnerabilities, it's essential to ensure that user input is never passed directly into the template engine's rendering function, especially in the template parameter. This involves thoroughly reviewing the code to make sure that user input is not incorporated into a template before it is rendered.
+#### If a web application requires users to edit or upload templates for legitimate purposes, it's crucial to implement strong security measures to avoid potential server compromises. One approach is to harden the template engine by removing or disabling dangerous functions that could be exploited for remote code execution. However, this method has limitations and can be circumvented by skilled attackers.
+#### A more robust solution is to isolate the template engine's execution environment from the main web server. This can be done by running the template engine in a separate, secure environment, such as a Docker container, which minimizes the risk of the web server being compromised.
