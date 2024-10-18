@@ -1,14 +1,14 @@
 # PHP Filters
 ***
-#### When we identify an LFI vulnerability we can use different [PHP Wrappers]() to extend our LFI exploitation, and even potentially reach remote code execution.
+#### When we identify an LFI vulnerability we can use different [PHP Wrappers](https://www.php.net/manual/en/wrappers.php.php) to extend our LFI exploitation, and even potentially reach remote code execution.
 #### PHP Wrappers are utilized to access I/O streams at the application level, file descriptors, and memory streams. They can also be used to read PHP source code files and execute system commands.
 
 ### Input Filters
-#### [PHP Filters]( ) are a type of PHP Wrappers, and are used to  filter the input passed to them by a specified filter.
+#### [PHP Filters](https://www.php.net/manual/en/filters.php) are a type of PHP Wrappers, and are used to  filter the input passed to them by a specified filter.
 #### In order to use the PHP Wrapper streams we can use the `php://` scheme , and to access the PHP filter wrapper `php://filter/` .
 #### There are several parameters that we can use with the filter wrapper, but the most important ones are `resource` and `read`. The `resource` parameter is used to specify the stream we would like to apply the filter on , while the `read`parameter applies different filters on the specified resource.
 
-#### We can utilize the four filters available : [String Filters](), [Conversion Filters](), [Compression Filters](), and [Encryption Filters]().
+#### We can utilize the four filters available : [String Filters](https://www.php.net/manual/en/filters.string.php), [Conversion Filters](https://www.php.net/manual/en/filters.convert.php), [Compression Filters](https://www.php.net/manual/en/filters.compression.php), and [Encryption Filters](https://www.php.net/manual/en/filters.encryption.php).
 
 ### Fuzzing For PHP Files
 #### Firstly, we should fuzz for different available PHP pages. Even if their HTTP response code does not return 200, we should be able to read their source code as well.
